@@ -1,0 +1,72 @@
+{
+  "name": "clock-format-utility",
+  "version": "0.0.1",
+  "description": "Utility that can detect clock format (12/24 hour) and can set clock format for moment",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "eslint src && jest",
+    "build": "babel src --out-dir lib",
+    "prepublish": "npm test && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertherber/clock-format-utility.git"
+  },
+  "keywords": [
+    "clock",
+    "format",
+    "react-native",
+    "moment",
+    "utility",
+    "24",
+    "12",
+    "hour"
+  ],
+  "author": "Robert Herber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertherber/clock-format-utility/issues"
+  },
+  "homepage": "https://github.com/robertherber/clock-format-utility#readme",
+  "jest": {
+    "verbose": true,
+    "resetModules": true,
+    "collectCoverage": true,
+    "resetMocks": true,
+    "setupTestFrameworkScriptFile": "./setupTests.js",
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
+  },
+  "files": [
+    "lib/detect.js",
+    "lib/moment.js"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-react-native": "^2.0.0",
+    "eslint": "3",
+    "eslint-config-airbnb": "15",
+    "eslint-config-kingstinct-react-native": "^0.0.5",
+    "eslint-config-prettier": "^2.1.1",
+    "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-lodash-fp": "^2.1.3",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-react-native": "^2.3.2",
+    "jest": "^20.0.4",
+    "moment": "^2.18.1",
+    "prettier": "^1.5.2",
+    "react-native-device-info": "^0.10.2"
+  },
+  "optionalDependencies": {
+    "moment": "^2.18.1",
+    "react-native-device-info": "^0.10.2"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "name": "clock-format-utility",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility that can detect clock format (12/24 hour) and can set clock format for moment",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "eslint src && jest",
     "build": "babel src --out-dir lib",

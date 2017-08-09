@@ -5,7 +5,9 @@ export const detectDeviceLocale = () => {
 
     return deviceInfo.getDeviceLocale();
   } catch (e) {
-    return navigator.language;
+    return window.navigator.languages && window.navigator.languages.length > 0
+    ? window.navigator.languages[0]
+    : window.navigator.language || window.navigator.userLanguage;
   }
 };
 

@@ -1,6 +1,15 @@
 import { setMomentLocaleClockFormat, setMomentLocale } from '../moment';
 
 describe('moment.js', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('language', () => undefined);
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('languages', () => []);
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('userLanguage', () => undefined);
+  });
+  
   it('Should set moment to current device locale', () => {
     const moment = require('moment');
     // eslint-disable-next-line no-restricted-properties, no-underscore-dangle

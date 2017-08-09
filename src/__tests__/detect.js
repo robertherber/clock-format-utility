@@ -1,4 +1,13 @@
 describe('detect.js', () => {
+  beforeEach(() => {
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('language', () => undefined);
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('languages', () => []);
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('userLanguage', () => undefined);
+  });
+
   it('Should detect language through react-native-device-info', () => {
     // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
     navigator.__defineGetter__('language', () => 'en-SV');
@@ -8,6 +17,19 @@ describe('detect.js', () => {
     const { detectDeviceLocale } = require('../detect');
     const locale = detectDeviceLocale();
     expect(locale).toEqual('en-GB');
+  });
+
+  it('Should attempt to get to navigator.languages', () => {
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('languages', () => ['my-LANGUAGE']);
+
+    jest.mock('react-native-device-info', () => {
+      throw new Error('forgot to install')
+    });
+
+    const { detectDeviceLocale } = require('../detect');
+    const locale = detectDeviceLocale();
+    expect(locale).toEqual('my-LANGUAGE');
   });
 
   it('Should fallback to navigator.language', () => {
@@ -21,6 +43,19 @@ describe('detect.js', () => {
     const { detectDeviceLocale } = require('../detect');
     const locale = detectDeviceLocale();
     expect(locale).toEqual('en-SV');
+  });
+
+  it('Should fallback to navigator.userLanguage', () => {
+    // eslint-disable-next-line no-restricted-properties, no-underscore-dangle
+    navigator.__defineGetter__('userLanguage', () => 'my-MICROSOFT-LANGUAGE');
+
+    jest.mock('react-native-device-info', () => {
+      throw new Error('forgot to install')
+    });
+
+    const { detectDeviceLocale } = require('../detect');
+    const locale = detectDeviceLocale();
+    expect(locale).toEqual('my-MICROSOFT-LANGUAGE');
   });
 
   it('Should detect clock format of current device to be 24 hours', () => {

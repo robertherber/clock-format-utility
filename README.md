@@ -1,4 +1,6 @@
 # clock-format-utility
+[![devDependency Status](https://david-dm.org/robertherber/clock-format-utility/dev-status.svg?style=flat)](https://david-dm.org/robertherber/clock-format-utility?type=dev)
+
 
 This is a tiny library used to set 12/24 hour clock formatting.
 The main use-case is to **support non-standard language/localization combinations** - specifically in moment.

@@ -1,6 +1,5 @@
 # clock-format-utility
 [ ![Codeship Status for robertherber/clock-format-utility](https://app.codeship.com/projects/78dc88f0-7cf6-0135-5c44-361f0802280c/status?branch=master)](https://app.codeship.com/projects/245786)
-[![devDependency Status](https://david-dm.org/robertherber/clock-format-utility/dev-status.svg?style=flat)](https://david-dm.org/robertherber/clock-format-utility?type=dev)
 
 
 This is a tiny library used to set 12/24 hour clock formatting.

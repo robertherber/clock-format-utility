@@ -1,3 +1,7 @@
+const specificClockConfig = {
+  'en-SV': '24',
+};
+
 export const detectDeviceLocale = () => {
   try {
     // eslint-disable-next-line import/no-extraneous-dependencies
@@ -12,6 +16,10 @@ export const detectDeviceLocale = () => {
 };
 
 export const detectDeviceClockFormat = (locale = detectDeviceLocale()) => {
+  if(specificClockConfig[locale]){
+    return specificClockConfig[locale];
+  }
+
   const timeString = new Date().toLocaleTimeString(locale),
         foundAMorPM = timeString.indexOf('AM') > -1 || timeString.indexOf('PM') > -1;
 

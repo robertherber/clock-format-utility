@@ -33,6 +33,9 @@
     "resetModules": true,
     "collectCoverage": true,
     "resetMocks": true,
+    "testPathIgnorePatterns": [
+      "lib"
+    ],
     "setupTestFrameworkScriptFile": "./setupTests.js",
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"

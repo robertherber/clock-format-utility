@@ -76,5 +76,12 @@ describe('detect.js', () => {
     const { detectDeviceClockFormat } = require('../detect');
     const clockFormat = detectDeviceClockFormat('sv-SE');
     expect(clockFormat).toEqual('24');
-  })
+  });
+
+  it('Should detect that en-SE has 24 hour clock format', () => {
+    global.Date = jest.fn(() => ({ toLocaleString: () => 'clock is 24 hour you know' }));
+    const { detectDeviceClockFormat } = require('../detect');
+    const clockFormat = detectDeviceClockFormat('en-SE');
+    expect(clockFormat).toEqual('24');
+  });
 });

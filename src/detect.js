@@ -9,9 +9,17 @@ export const detectDeviceLocale = () => {
 
     return deviceInfo.getDeviceLocale();
   } catch (e) {
-    return window.navigator.languages && window.navigator.languages.length > 0
-      ? window.navigator.languages[0]
-      : window.navigator.language || window.navigator.userLanguage;
+
+    try
+    {
+      return window.navigator.languages && window.navigator.languages.length > 0
+        ? window.navigator.languages[0]
+        : window.navigator.language || window.navigator.userLanguage;
+    }
+    catch(ex){
+      return 'en-US';
+    }
+
   }
 };
 

@@ -22,6 +22,47 @@ describe('moment.js', () => {
     expect(moment.locale()).toEqual('sv');
   });
 
+  it('Should set moment to en-GB', () => {
+    const moment = require('moment');
+
+    setMomentLocale('en-GB');
+    expect(moment.locale()).toEqual('en-gb');
+  });
+
+  it('Should set moment to sv for sv-EN', () => {
+    const moment = require('moment');
+
+    setMomentLocale('sv-US');
+    expect(moment.locale()).toEqual('sv');
+
+    expect(moment(new Date(1977, 0, 0)).from(new Date(1977, 0, 1))).toEqual('för en dag sedan');
+  });
+
+  it('Should set moment to en for en-SE', () => {
+    const moment = require('moment');
+
+    setMomentLocale('en-SE');
+    expect(moment.locale()).toEqual('en');
+
+    expect(moment(new Date(1977, 0, 0)).from(new Date(1977, 0, 1))).toEqual('a day ago');
+  });
+
+  it('Should set moment to sv for sv-SE', () => {
+    const moment = require('moment');
+
+    setMomentLocale('sv-SE');
+    expect(moment.locale()).toEqual('sv');
+
+    expect(moment(new Date(1977, 0, 0)).from(new Date(1977, 0, 1))).toEqual('för en dag sedan');
+  });
+
+  it('Should set moment to en', () => {
+    const moment = require('moment');
+
+    setMomentLocale('en-SE');
+    expect(moment.locale()).toEqual('en');
+  });
+
   it('Should update moment locale to use clock format of current device locale (sv-SE)', () => {
     const language = 'sv-SE';
     // eslint-disable-next-line no-restricted-properties, no-underscore-dangle

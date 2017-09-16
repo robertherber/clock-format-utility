@@ -1,6 +1,6 @@
 {
   "name": "clock-format-utility",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Utility that can detect clock format (12/24 hour) and can set clock format for moment",
   "main": "lib/index.js",
   "scripts": {

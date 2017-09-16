@@ -6,7 +6,8 @@
   "scripts": {
     "test": "eslint src && jest",
     "build": "babel src --out-dir lib",
-    "prepublish": "npm test && npm run build"
+    "prepublish": "npm test && npm run build",
+    "prepush": "npm test"
   },
   "repository": {
     "type": "git",

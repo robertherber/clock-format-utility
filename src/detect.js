@@ -6,14 +6,15 @@ export const detectDeviceLocale = () => {
     return deviceInfo.getDeviceLocale();
   } catch (e) {
     return window.navigator.languages && window.navigator.languages.length > 0
-    ? window.navigator.languages[0]
-    : window.navigator.language || window.navigator.userLanguage;
+      ? window.navigator.languages[0]
+      : window.navigator.language || window.navigator.userLanguage;
   }
 };
 
 export const detectDeviceClockFormat = (locale = detectDeviceLocale()) => {
-  const timeString = new Date().toLocaleString(locale);
-  const foundAMorPM = timeString.indexOf('AM') > -1 || timeString.indexOf('PM') > -1;
+  const timeString = new Date().toLocaleTimeString(locale),
+        foundAMorPM = timeString.indexOf('AM') > -1 || timeString.indexOf('PM') > -1;
+
   return foundAMorPM ? '12' : '24';
 };
 

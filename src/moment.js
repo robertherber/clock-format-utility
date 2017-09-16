@@ -15,9 +15,9 @@ export const setMomentLocaleClockFormat = (
   locale = require('moment').locale()
 ) => {
   // eslint-disable-next-line import/no-extraneous-dependencies
-  const moment = require('moment');
-  // eslint-disable-next-line no-underscore-dangle
-  const longDateFormat = moment.localeData(locale)._longDateFormat;
+  const moment = require('moment'),
+        // eslint-disable-next-line no-underscore-dangle
+        longDateFormat = moment.localeData(locale)._longDateFormat;
 
   if (clockFormat === '24') {
     moment.updateLocale(locale, {
@@ -25,10 +25,14 @@ export const setMomentLocaleClockFormat = (
         ...longDateFormat,
         LT: 'HH:mm',
         LTS: 'HH:mm:ss',
-        LLL: longDateFormat.LLL && replaceFormatInString(longDateFormat.LLL),
-        LLLL: longDateFormat.LLLL && replaceFormatInString(longDateFormat.LLLL),
-        lll: longDateFormat.lll && replaceFormatInString(longDateFormat.lll),
-        llll: longDateFormat.llll && replaceFormatInString(longDateFormat.llll),
+        LLL:
+          longDateFormat.LLL && replaceFormatInString(longDateFormat.LLL),
+        LLLL:
+          longDateFormat.LLLL && replaceFormatInString(longDateFormat.LLLL),
+        lll:
+          longDateFormat.lll && replaceFormatInString(longDateFormat.lll),
+        llll:
+          longDateFormat.llll && replaceFormatInString(longDateFormat.llll),
       },
     });
   } else {
@@ -40,13 +44,11 @@ export const setMomentLocaleClockFormat = (
         LLL:
           longDateFormat.LLL && replaceFormatInString(longDateFormat.LLL, '12'),
         LLLL:
-          longDateFormat.LLLL &&
-          replaceFormatInString(longDateFormat.LLLL, '12'),
+          longDateFormat.LLLL && replaceFormatInString(longDateFormat.LLLL, '12'),
         lll:
           longDateFormat.lll && replaceFormatInString(longDateFormat.lll, '12'),
         llll:
-          longDateFormat.llll &&
-          replaceFormatInString(longDateFormat.llll, '12'),
+          longDateFormat.llll && replaceFormatInString(longDateFormat.llll, '12'),
       },
     });
   }
